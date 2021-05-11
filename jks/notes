@@ -1,0 +1,32 @@
+
+Generate a pkcs12 from a cert and key
+
+  (mkp12)
+  openssl pkcs12 -export -out idp.p12 -inkey idp.key -in idp.crt
+
+  You don't have to supply a password here, but you do when creating a jks.  It's convenient just to use the same simple passwor dthroughout.
+
+Look at a pkcs12 certificate
+
+  (e.g.)
+  openssl pkcs12 -in idp.p12 -nodes | openssl x509 -noout -dates -subject
+
+
+Create a jks file from a pkcs12
+
+  (mkjks)  it 'fixes' a jks I think.  Can also just delete the original. the following will create it.
+  keytool -v -importkeystore -srckeystore idp.p12 -srcstoretype PKCS12 -destkeystore idp.jks -deststoretype JKS
+
+  Note that you have to supply a password at this step.
+
+
+List certs in a keystore
+
+  keytool -list -keystore idp.jks
+
+List details of a cert in the keystore
+
+  If you didn't specify an alias the 'name' is basically the sequence number.  First item in the above list.
+ 
+  keytool -export -keystore idp.jks -file z -alias 1 | openssl x509 -inform der -text
+

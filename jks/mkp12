@@ -1,0 +1,2 @@
+openssl pkcs12 -export -out idp.p12 -inkey idp.key -in idp.crt
+

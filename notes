@@ -1,0 +1,8 @@
+
+ get a shell in a running image
+
+  $ docker exec -it (image_id) /bin/bash
+
+
+
+

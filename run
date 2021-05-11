@@ -1,0 +1,1 @@
+docker run -p 443:8443 --name idp -d -v /Users/fox/work/docker/idp4/credentials:/data/local/idp/credentials:ro jimfox/idp4

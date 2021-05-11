@@ -1,0 +1,7 @@
+keytool -genkey -alias toss -keystore idp.jks
+keytool -delete -alias toss -keystore idp.jks
+
+keytool -v -importkeystore -srckeystore idp.p12 -srcstoretype PKCS12 -destkeystore idp.jks -deststoretype JKS
+
+
+
